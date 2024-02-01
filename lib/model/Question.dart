@@ -29,7 +29,7 @@ final List<Question> questionList = [
   Question(
       question: "Valentin Folliguet est-il stuck silver sur Valorant parce qu'il est nul au jeu ?",
       answer: false,
-      explanation: "C'est faux, Valentin est excellent sur Valorant, le jeu édité par Riot Games. Malheuresement ses teams mates sont la raison de son stuck silver (au cas où, mon paypal: mataj.ardit@gmail.com)",
+      explanation: "C'est faux, Valentin est excellent sur Valorant, le jeu édité par Riot Games. Malheureusement ses teams mates sont la raison de son stuck silver (au cas où, mon paypal: mataj.ardit@gmail.com)",
       thumbnail: 'silver.jpg'),
   Question(
       question: "Serait-je un jour à la Kcorp et gagnerais-je un jour les worlds de League Of Legends ?",
@@ -58,13 +58,13 @@ final List<Question> questionList = [
   Question(
       question: "Suis-je le meilleur développeur de cette salle ?",
       answer: false,
-      explanation: "Malheuresement je n'arrive pas à la cheville du GOAT: Valentin Folliguet ! (pour rappel, mon paypal: mataj.ardit@gmail.com)",
+      explanation: "Malheureusement je n'arrive pas à la cheville du GOAT: Valentin Folliguet ! (pour rappel, mon paypal: mataj.ardit@gmail.com)",
       thumbnail: 'VF.png'
   ),
   Question(
       question: "En 2020 je me suis fais bannir mon premier compte LoL et ai donc perdu 350€ de skins à cause de ça",
       answer: true,
-      explanation: "... je ne préfère de pas en parler",
+      explanation: "... je préfère ne pas en parler",
       thumbnail: 'RG.webp'
   ),
   Question(

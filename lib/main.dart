@@ -41,54 +41,51 @@ class MyBigQuizz extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyBigQuizz> {
-
   @override
   Widget build(BuildContext context) {
-
     double width100 = MediaQuery.of(context).size.width;
 
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Color(0xFF101e35),
-        title: Center(child: Text(widget.title, style: TextStyle(color: Colors.white),)),
-      ),
-      body: Center(
-        child: Padding(
+        appBar: AppBar(
+          backgroundColor: Color(0xFF101e35),
+          title: Center(
+              child: Text(
+            widget.title,
+            style: TextStyle(color: Colors.white),
+          )),
+        ),
+        body: Center(
+            child: Padding(
           padding: const EdgeInsets.all(15.0),
           child: Container(
-            width: width100,
-            height: 500,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(10),
-              color: const Color(0xFF101e35)
-            ),
-            child: Padding(
-              padding: const EdgeInsets.all(15.0),
-              child: Column(
-                children: [
+              width: width100,
+              height: 500,
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10),
+                  color: const Color(0xFF101e35)),
+              child: Padding(
+                padding: const EdgeInsets.all(15.0),
+                child: Column(
+                  children: [
                     Expanded(
-                        child: Image.asset("images/assets/kcorp.webp", fit: BoxFit.cover, width: width100)
-                    ),
+                        child: Image.asset("images/assets/kcorp.webp",
+                            fit: BoxFit.cover, width: width100)),
                     Container(
                       margin: EdgeInsets.fromLTRB(0, 20, 0, 5),
                       child: ElevatedButton(
                           onPressed: () {
-                            Navigator.of(context).push(
-                                MaterialPageRoute(builder: (context) => MyQuestion(title: "Esport Quizz"))
-                            );
+                            Navigator.of(context).push(MaterialPageRoute(
+                                builder: (context) =>
+                                    MyQuestion(title: "Esport Quizz")));
                           },
-                          child: const Text("Commencer la partie", style: TextStyle(
-                            color: Color(0xFF101e35)
-                          ),)
-                      ),
+                          child: const Text(
+                            "Commencer la partie",
+                            style: TextStyle(color: Color(0xFF101e35)),
+                          )),
                     )
-                ],
-              ),
-            )
-          ),
-
-        )
-      )
-    );
+                  ],
+                ),
+              )),
+        )));
   }
 }

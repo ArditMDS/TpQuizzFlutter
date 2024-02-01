@@ -1,8 +1,6 @@
-import 'dart:html';
-
 import 'package:flutter/material.dart';
-import 'package:flutter_rating_bar/flutter_rating_bar.dart';
-import 'package:tp_flutter/model/question.dart';
+import 'package:tp_flutter/model/Question.dart';
+import 'package:tp_flutter/widget/RatingBar.dart';
 
 void main() {
   runApp(const MyApp());
@@ -96,6 +94,7 @@ class _MyQuestionState extends State<MyQuestion> {
         ));
   }
 
+
   Column customColumn(
       {required String reponse,
       required String explenation,
@@ -115,7 +114,42 @@ class _MyQuestionState extends State<MyQuestion> {
         addPoint == true
             ? Image.asset("images/assets/oui.gif")
             : Image.asset("images/assets/non.gif"),
-        Text(explenation),
+        _counter < 9
+            ? Text(explenation)
+            : Column(
+                children: [
+                  Text(explenation),
+                  Container(
+                    margin: EdgeInsets.fromLTRB(0, 20, 0, 10),
+                    child: Text("Merci d'avoir joué, voici ton score :", style: TextStyle(
+                      fontSize: 17
+                    ),),
+                  ),
+                  customRatingBar(size: 20.0, score: score),
+                  score > 5 ?
+                  Container(
+                    margin: EdgeInsets.symmetric(vertical: 20),
+                    child: Column(
+                      children: [
+                        Text("C'est une excellent score"),
+                        Text("Bienvenue dans la team des BG"),
+                        Image.asset("images/assets/opened.webp")
+                      ],
+                    ),
+                  )
+                      :
+                  Container(
+                    margin: EdgeInsets.symmetric(vertical: 20),
+                    child: Column(
+                      children: [
+                        Text("C'est éclaté comme score"),
+                        Text("Tu rentres pas dans la team des BG"),
+                        Image.asset("images/assets/closed.webp")
+                      ],
+                    ),
+                  )
+    ],
+              ),
         const SizedBox(height: 15),
         TextButton(
             onPressed: () {
@@ -123,8 +157,10 @@ class _MyQuestionState extends State<MyQuestion> {
               Navigator.pop(context);
             },
             child: _counter == 9
-                ? const Text('Rejouer !', style: TextStyle(color: Color(0xFF101e35)))
-                : const Text('Question suivante', style: TextStyle(color: Color(0xFF101e35)))),
+                ? const Text('Rejouer !',
+                    style: TextStyle(color: Color(0xFF101e35)))
+                : const Text('Question suivante',
+                    style: TextStyle(color: Color(0xFF101e35)))),
       ],
     );
   }
@@ -152,16 +188,7 @@ class _MyQuestionState extends State<MyQuestion> {
           child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                RatingBarIndicator(
-                  rating: score,
-                  itemBuilder: (context, index) => const Icon(
-                    Icons.stars,
-                    color: Colors.amber,
-                  ),
-                  itemCount: 10,
-                  itemSize: 35.0,
-                  direction: Axis.horizontal,
-                ),
+                customRatingBar(size: 35.0, score: score),
                 Container(
                     width: width100,
                     height: 500,
